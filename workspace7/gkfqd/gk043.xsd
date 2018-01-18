@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="gk043" targetNamespace="http://tempuri.org/gk043.xsd" xmlns:mstns="http://tempuri.org/gk043.xsd" xmlns="http://tempuri.org/gk043.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.gkfqd.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_XJQKTableAdapter" GeneratorDataComponentClassName="V_XJQKTableAdapter" Name="V_XJQK" UserDataComponentName="V_XJQKTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GKFQD.V_XJQK" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   城市, 批准规模, 验收规模, 建新规模, 立项规模
+FROM      V_XJQK</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="城市" DataSetColumn="城市" />
+              <Mapping SourceColumn="批准规模" DataSetColumn="批准规模" />
+              <Mapping SourceColumn="验收规模" DataSetColumn="验收规模" />
+              <Mapping SourceColumn="建新规模" DataSetColumn="建新规模" />
+              <Mapping SourceColumn="立项规模" DataSetColumn="立项规模" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="gk043" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="gk043" msprop:Generator_UserDSName="gk043">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_XJQK" msprop:Generator_TableClassName="V_XJQKDataTable" msprop:Generator_TableVarName="tableV_XJQK" msprop:Generator_TablePropName="V_XJQK" msprop:Generator_RowDeletingName="V_XJQKRowDeleting" msprop:Generator_UserTableName="V_XJQK" msprop:Generator_RowChangingName="V_XJQKRowChanging" msprop:Generator_RowEvHandlerName="V_XJQKRowChangeEventHandler" msprop:Generator_RowDeletedName="V_XJQKRowDeleted" msprop:Generator_RowEvArgName="V_XJQKRowChangeEvent" msprop:Generator_RowChangedName="V_XJQKRowChanged" msprop:Generator_RowClassName="V_XJQKRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="城市" msprop:Generator_ColumnVarNameInTable="column城市" msprop:Generator_ColumnPropNameInRow="城市" msprop:Generator_ColumnPropNameInTable="城市Column" msprop:Generator_UserColumnName="城市" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="批准规模" msprop:Generator_ColumnVarNameInTable="column批准规模" msprop:Generator_ColumnPropNameInRow="批准规模" msprop:Generator_ColumnPropNameInTable="批准规模Column" msprop:Generator_UserColumnName="批准规模" type="xs:decimal" minOccurs="0" />
+              <xs:element name="验收规模" msprop:Generator_ColumnVarNameInTable="column验收规模" msprop:Generator_ColumnPropNameInRow="验收规模" msprop:Generator_ColumnPropNameInTable="验收规模Column" msprop:Generator_UserColumnName="验收规模" type="xs:decimal" minOccurs="0" />
+              <xs:element name="建新规模" msprop:Generator_ColumnVarNameInTable="column建新规模" msprop:Generator_ColumnPropNameInRow="建新规模" msprop:Generator_ColumnPropNameInTable="建新规模Column" msprop:Generator_UserColumnName="建新规模" type="xs:decimal" minOccurs="0" />
+              <xs:element name="立项规模" msprop:Generator_ColumnVarNameInTable="column立项规模" msprop:Generator_ColumnPropNameInRow="立项规模" msprop:Generator_ColumnPropNameInTable="立项规模Column" msprop:Generator_UserColumnName="立项规模" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

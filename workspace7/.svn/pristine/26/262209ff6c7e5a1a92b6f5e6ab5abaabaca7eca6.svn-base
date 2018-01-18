@@ -1,0 +1,280 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using SuperMap.Data.Conversion;
+using SuperMap.Data;
+using System.Diagnostics;
+using SuperMap.Mapping;
+using System.Data.OleDb;
+using gkfqd.Common;
+
+namespace gkfqd.ui.gk01
+{
+    public partial class gk020 : WinFormsUI.Docking.DockContent
+    {
+        #region 变量区
+        string pic = "";
+        private DataImport dataImport;
+        private Datasource importDatasource;
+        private Projection prj;
+        String imgPath = "";
+        private Map m_map;
+        DataSet dataSet = new DataSet();
+        DataSet dataSet1 = new DataSet();
+        DataSet dataSetCounty = new DataSet();
+        DataSet dataSetCity = new DataSet();
+        private ImpImg impimg;
+        private Boolean m_isCustomStyle = true;
+        DatasetVector importResultShp = null;
+        //共同用  sqlQuery
+        StringBuilder sqlQuery = new StringBuilder();
+        //选择上传文件名
+        string fileName = null;
+        //选择上传文件路径
+        String filePath = null;
+
+        #endregion
+
+        #region 初始化
+        public gk020()
+        {
+            InitializeComponent();
+            //区县comboBox列表加载
+            LoadComboBox();
+            //默认选内蒙古自治区
+            comboBox1.SelectedIndex = 0;
+            //默认年份为 全部
+            //comboBox4.SelectedIndex = 0;
+            comboBox4.Text = "2017";
+            impimg = new ImpImg(workspace1, mapControl1);
+
+        }
+        #endregion
+
+        #region  查询影像
+        private void button1_Click(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("正在查询");
+            splashScreenManager1.SetWaitFormDescription("请等待...");
+            WorkspaceConnectionInfo conInfo = new WorkspaceConnectionInfo(gkfqd.Common.Tool.GetConnectionInfo());
+            workspace1.Open(conInfo);
+            mapControl1.Map.Workspace = workspace1;
+            importDatasource = workspace1.Datasources[0];
+            //mapControl1.Map.Open(comboBox3.Text + comboBox4.Text );
+            mapControl1.Map.Open("新城区2017");
+            m_map = mapControl1.Map;
+            splashScreenManager1.CloseWaitForm();
+            mapControl1.Map.ViewEntire();
+            mapControl1.Map.Refresh();
+            MessageBox.Show("查询完成");
+        }
+        #endregion
+
+        #region 区县级联选择处理
+
+
+        public void LoadComboBox()
+        {
+            sqlQuery.Clear();
+            sqlQuery.Append(" SELECT XZQM  FROM  XZQ  ");
+            sqlQuery.Append(" WHERE CJ ='1'  ");
+            sqlQuery.Append(" AND BHBS <>'0000'");
+            sqlQuery.Append(" ORDER BY  XZQDM  ");
+            gkfqd.Common.DbUse.conn.Close();
+
+            gkfqd.Common.DbUse.conn.Open();
+            dataSet.Clear();
+            OleDbDataAdapter MyAdapter = new OleDbDataAdapter(sqlQuery.ToString(), gkfqd.Common.DbUse.conn);
+            MyAdapter.Fill(dataSet);
+            gkfqd.Common.DbUse.conn.Close();
+
+            comboBox2.DataSource = dataSet.Tables[0];
+            comboBox2.DisplayMember = "XZQM";
+            comboBox2.ValueMember = "XZQM";
+
+
+            sqlQuery.Clear();
+            sqlQuery.Append(" SELECT XZQM  FROM  XZQ  ");
+            sqlQuery.Append(" WHERE CJ ='2'  ");
+            //默认加载全部  BHBS = 0000
+            sqlQuery.Append(" AND BHBS <>'0000'");
+            sqlQuery.Append(" ORDER BY  XZQDM  ");
+            gkfqd.Common.DbUse.conn.Close();
+            gkfqd.Common.DbUse.conn.Open();
+            dataSet1.Clear();
+
+            OleDbDataAdapter MyAdapter2 = new OleDbDataAdapter(sqlQuery.ToString(), gkfqd.Common.DbUse.conn);
+            MyAdapter2.Fill(dataSet1);
+            gkfqd.Common.DbUse.conn.Close();
+            comboBox3.DataSource =
+            comboBox3.DataSource = dataSet1.Tables[0];
+            comboBox3.DisplayMember = "XZQM";
+            comboBox3.ValueMember = "XZQM";
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            sqlQuery.Clear();
+            sqlQuery.Append(" SELECT BHBS  FROM  XZQ  ");
+            sqlQuery.Append(" WHERE XZQM  = '" + comboBox2.SelectedValue + "'");
+            gkfqd.Common.DbUse.conn.Close();
+            gkfqd.Common.DbUse.conn.Open();
+            dataSetCounty.Clear();
+            OleDbDataAdapter MyAdapter1 = new OleDbDataAdapter(sqlQuery.ToString(), gkfqd.Common.DbUse.conn);
+            MyAdapter1.Fill(dataSetCounty);
+            gkfqd.Common.DbUse.conn.Close();
+            //取得包含标识
+            if (dataSetCounty.Tables[0].Rows.Count > 0)
+            {
+                String strBhbs = dataSetCounty.Tables[0].Rows[0][0].ToString();
+
+                sqlQuery.Clear();
+                sqlQuery.Append(" SELECT XZQM  FROM  XZQ  ");
+                sqlQuery.Append(" WHERE CJ ='2'  ");
+                sqlQuery.Append(" AND BHBS ='" + strBhbs + "'");
+                sqlQuery.Append(" ORDER BY  XZQDM  ");
+                gkfqd.Common.DbUse.conn.Close();
+                gkfqd.Common.DbUse.conn.Open();
+                dataSetCity.Clear();
+            }
+            else
+            {
+                return;
+            }
+            OleDbDataAdapter MyAdapter2 = new OleDbDataAdapter(sqlQuery.ToString(), gkfqd.Common.DbUse.conn);
+            MyAdapter2.Fill(dataSetCity);
+            gkfqd.Common.DbUse.conn.Close();
+            comboBox3.DataSource = dataSetCity.Tables[0];
+            comboBox3.DisplayMember = "XZQM";
+            comboBox3.ValueMember = "XZQM";
+        }
+
+
+        #endregion
+
+        #region 工具条
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            mapControl1.Action = SuperMap.UI.Action.Select;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
+            mapControl1.Action = SuperMap.UI.Action.Pan;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            mapControl1.Action = SuperMap.UI.Action.ZoomIn;
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            mapControl1.Action = SuperMap.UI.Action.ZoomOut;
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            mapControl1.Action = SuperMap.UI.Action.ZoomFree;
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+
+            mapControl1.Map.ViewEntire();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            mapControl1.Map.Refresh();
+        }
+        #endregion
+
+        #region 导入投影
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog objFile = new OpenFileDialog();
+            objFile.Filter = "IMG文件(.img)|*.img|TIF文件(.tif)|*.tif|BMP文件(.bmp)|*.bmp|PNG文件(.png)|*.png|其他文件(.*)|*.*";
+            objFile.ShowDialog();
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("正在导入影像");
+            splashScreenManager1.SetWaitFormDescription("请等待...");
+            imgPath = objFile.FileName;
+            String sourcePath = imgPath;
+            // true=覆盖已存在的同名文件,false则反之
+            bool isrewrite = true;
+            if (imgPath.Contains(".bmp"))
+            {
+                string str = System.IO.Directory.GetCurrentDirectory();
+                //复制选择文件到临时文件夹，目的是重命名文件，导入到数据库指定文件中
+                String targetPath = str + "\\tempFolder\\temp_gkfqd01.bmp";
+                System.IO.File.Copy(sourcePath, targetPath, isrewrite);
+                ImportToShp();
+            }
+            splashScreenManager1.CloseWaitForm();
+            try
+            {
+                impimg.AddImage(m_isCustomStyle);
+
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+            }
+        }
+
+        public void ImportToShp()
+        {
+
+            //-------------数据库打开工作空间
+            workspace1 = new SuperMap.Data.Workspace();
+            workspace1.Open(gkfqd.Common.Tool.GetConnectionInfo());
+            importDatasource = workspace1.Datasources[gkfqd.Common.Tool.GetWorkspaceDataDatasources()];
+            dataImport = new DataImport();
+
+            try
+            {
+                dataImport.ImportSettings.Clear();
+                //ImportSettingSHP shpSetting = new ImportSettingSHP();
+                ImportSettingBMP bmpSetting = new ImportSettingBMP();
+                bmpSetting.ImportMode = ImportMode.Overwrite;
+                string str = System.IO.Directory.GetCurrentDirectory();
+                //复制选择文件到临时文件夹，目的是重命名文件，导入到数据库指定文件中
+                String targetPath = str + "\\tempFolder\\temp_gkfqd01.bmp";
+                bmpSetting.SourceFilePath = targetPath;
+                bmpSetting.TargetDatasource = importDatasource;
+                dataImport.ImportSettings.Add(bmpSetting);
+
+                dataImport.Run();
+                mapControl1.Map.ViewEntire();
+                mapControl1.Map.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+        }
+        //保存投影
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 保存地图为GRID，保存工作空间
+
+            workspace1.Maps.Add(workspace1.Maps.GetAvailableMapName(textBox1.Text + textBox2.Text), mapControl1.Map.ToXML());
+            workspace1.Save();
+            MessageBox.Show("保存完成");
+        }
+    }
+        #endregion
+
+
+}

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="gk042" targetNamespace="http://tempuri.org/gk042.xsd" xmlns:mstns="http://tempuri.org/gk042.xsd" xmlns="http://tempuri.org/gk042.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.gkfqd.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ZongTableAdapter" GeneratorDataComponentClassName="ZongTableAdapter" Name="Zong" UserDataComponentName="ZongTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GKFQD01.GHSUPERPOSITION" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   ZLDWMC AS 坐落单位名称, ZLDWDM AS 坐落单位代码, DLBM AS 地类编码, DLMC AS 地类名称, TBBH AS 图斑编号, 
+                SUM(TBDLMJ) AS 图斑地类面积
+FROM      GHSUPERPOSITION
+GROUP BY ZLDWMC, ZLDWDM, DLBM, DLMC, TBBH
+ORDER BY 坐落单位名称</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="坐落单位名称" DataSetColumn="坐落单位名称" />
+              <Mapping SourceColumn="坐落单位代码" DataSetColumn="坐落单位代码" />
+              <Mapping SourceColumn="地类编码" DataSetColumn="地类编码" />
+              <Mapping SourceColumn="地类名称" DataSetColumn="地类名称" />
+              <Mapping SourceColumn="图斑编号" DataSetColumn="图斑编号" />
+              <Mapping SourceColumn="图斑地类面积" DataSetColumn="图斑地类面积" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="gk042" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="gk042" msprop:Generator_UserDSName="gk042">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Zong" msprop:Generator_TableClassName="ZongDataTable" msprop:Generator_TableVarName="tableZong" msprop:Generator_TablePropName="Zong" msprop:Generator_RowDeletingName="ZongRowDeleting" msprop:Generator_RowChangingName="ZongRowChanging" msprop:Generator_RowEvHandlerName="ZongRowChangeEventHandler" msprop:Generator_RowDeletedName="ZongRowDeleted" msprop:Generator_UserTableName="Zong" msprop:Generator_RowChangedName="ZongRowChanged" msprop:Generator_RowEvArgName="ZongRowChangeEvent" msprop:Generator_RowClassName="ZongRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="坐落单位名称" msprop:Generator_ColumnVarNameInTable="column坐落单位名称" msprop:Generator_ColumnPropNameInRow="坐落单位名称" msprop:Generator_ColumnPropNameInTable="坐落单位名称Column" msprop:Generator_UserColumnName="坐落单位名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="坐落单位代码" msprop:Generator_ColumnVarNameInTable="column坐落单位代码" msprop:Generator_ColumnPropNameInRow="坐落单位代码" msprop:Generator_ColumnPropNameInTable="坐落单位代码Column" msprop:Generator_UserColumnName="坐落单位代码" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="19" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="地类编码" msprop:Generator_ColumnVarNameInTable="column地类编码" msprop:Generator_ColumnPropNameInRow="地类编码" msprop:Generator_ColumnPropNameInTable="地类编码Column" msprop:Generator_UserColumnName="地类编码" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="地类名称" msprop:Generator_ColumnVarNameInTable="column地类名称" msprop:Generator_ColumnPropNameInRow="地类名称" msprop:Generator_ColumnPropNameInTable="地类名称Column" msprop:Generator_UserColumnName="地类名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="图斑编号" msprop:Generator_ColumnVarNameInTable="column图斑编号" msprop:Generator_ColumnPropNameInRow="图斑编号" msprop:Generator_ColumnPropNameInTable="图斑编号Column" msprop:Generator_UserColumnName="图斑编号" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="图斑地类面积" msprop:Generator_ColumnVarNameInTable="column图斑地类面积" msprop:Generator_ColumnPropNameInRow="图斑地类面积" msprop:Generator_ColumnPropNameInTable="图斑地类面积Column" msprop:Generator_UserColumnName="图斑地类面积" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

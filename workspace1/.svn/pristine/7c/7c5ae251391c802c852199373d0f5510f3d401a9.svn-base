@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.Services;
+using System.IO;
+
+namespace WebService
+{
+    /// <summary>
+    /// Service1 的摘要说明
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    
+    public class Service1 : System.Web.Services.WebService
+    { 
+        #region webservice 测试 方法HelloWorld
+        [WebMethod]
+        public string HelloWorld()
+        {
+            return "Hello World";
+        }
+        #endregion
+
+        #region webservice 接收文件服务端处理
+        
+        [WebMethod(Description = "TransFile")]
+        public string TransFile(byte[] fileBt, string fileName, bool ifCreate)
+        {
+            string rst = "0";
+            if (fileBt.Length == 0){
+                return rst;
+            }
+            string filePath = Server.MapPath(System.Configuration.ConfigurationManager.AppSettings["CSVPath"].ToString());   //存储文件路径
+            //创建系统日期文件夹,避免同一文件夹下文件太多问题，避免同一地图应文档重名
+            filePath = filePath + DateTime.Now.ToString("yyyyMMdd") + "\\";
+            if (!Directory.Exists(filePath))
+            {
+                // Create the directory it does not exist.
+                Directory.CreateDirectory(filePath);
+            }
+            if (File.Exists(filePath + fileName))
+            {
+                return "3";
+            }
+           
+            FileStream fstream;
+            //是否创建新文件
+            if (ifCreate)
+            {
+                fstream = new FileStream(filePath + fileName, FileMode.Create);
+            }
+            else
+            {
+                fstream = new FileStream(filePath + fileName, FileMode.Append);
+            }
+            try
+            {
+                fstream.Write(fileBt, 0, fileBt.Length);   //二进制转换成文件
+                rst = "1";
+                fstream.Close();
+            }
+            catch (Exception ex)
+            {
+                rst = "2";
+            }
+            finally
+            {
+                fstream.Close();
+            }
+            return rst;
+        }
+        #endregion
+
+    }
+}

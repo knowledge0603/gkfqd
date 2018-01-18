@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GK041" targetNamespace="http://tempuri.org/GK041.xsd" xmlns:mstns="http://tempuri.org/GK041.xsd" xmlns="http://tempuri.org/GK041.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.gkfqd.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GKFQDTableAdapter" GeneratorDataComponentClassName="GKFQDTableAdapter" Name="GKFQD" UserDataComponentName="GKFQDTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GKFQD01.ZYSUPERPOSITION" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   DLBM AS 地类编码, DLMC AS 地类名称, SUM(TBDLMJ) AS 占用面积
+FROM      ZYSUPERPOSITION
+GROUP BY DLMC, DLBM</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="占用面积" DataSetColumn="占用面积" />
+              <Mapping SourceColumn="地类编码" DataSetColumn="地类编码" />
+              <Mapping SourceColumn="地类名称" DataSetColumn="地类名称" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GK041" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GK041" msprop:Generator_UserDSName="GK041">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GKFQD" msprop:Generator_TableClassName="GKFQDDataTable" msprop:Generator_TableVarName="tableGKFQD" msprop:Generator_RowChangedName="GKFQDRowChanged" msprop:Generator_TablePropName="GKFQD" msprop:Generator_RowDeletingName="GKFQDRowDeleting" msprop:Generator_RowChangingName="GKFQDRowChanging" msprop:Generator_RowEvHandlerName="GKFQDRowChangeEventHandler" msprop:Generator_RowDeletedName="GKFQDRowDeleted" msprop:Generator_RowClassName="GKFQDRow" msprop:Generator_UserTableName="GKFQD" msprop:Generator_RowEvArgName="GKFQDRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="占用面积" msprop:Generator_ColumnVarNameInTable="column占用面积" msprop:Generator_ColumnPropNameInRow="占用面积" msprop:Generator_ColumnPropNameInTable="占用面积Column" msprop:Generator_UserColumnName="占用面积" type="xs:decimal" minOccurs="0" />
+              <xs:element name="地类编码" msprop:Generator_ColumnVarNameInTable="column地类编码" msprop:Generator_ColumnPropNameInRow="地类编码" msprop:Generator_ColumnPropNameInTable="地类编码Column" msprop:Generator_UserColumnName="地类编码" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="地类名称" msprop:Generator_ColumnVarNameInTable="column地类名称" msprop:Generator_ColumnPropNameInRow="地类名称" msprop:Generator_ColumnPropNameInTable="地类名称Column" msprop:Generator_UserColumnName="地类名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

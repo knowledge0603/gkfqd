@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GK045" targetNamespace="http://tempuri.org/GK045.xsd" xmlns:mstns="http://tempuri.org/GK045.xsd" xmlns="http://tempuri.org/GK045.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.gkfqd.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="XZDLTBTableAdapter" GeneratorDataComponentClassName="XZDLTBTableAdapter" Name="XZDLTB" UserDataComponentName="XZDLTBTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GKFQD.GHDLTB" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   DLBM AS 地类编码, SUM(TBDLMJ) AS 复垦面积, 规划地类名 AS 复垦前地类名称, 土地用途分 AS 复垦后地类用途
+FROM      GHDLTB
+GROUP BY DLBM, 规划地类名, 土地用途分</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="地类编码" DataSetColumn="地类编码" />
+              <Mapping SourceColumn="复垦面积" DataSetColumn="复垦面积" />
+              <Mapping SourceColumn="复垦前地类名称" DataSetColumn="复垦前地类名称" />
+              <Mapping SourceColumn="复垦后地类用途" DataSetColumn="复垦后地类用途" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GK045" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GK045" msprop:Generator_UserDSName="GK045">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="XZDLTB" msprop:Generator_TableClassName="XZDLTBDataTable" msprop:Generator_TableVarName="tableXZDLTB" msprop:Generator_TablePropName="XZDLTB" msprop:Generator_RowDeletingName="XZDLTBRowDeleting" msprop:Generator_UserTableName="XZDLTB" msprop:Generator_RowChangingName="XZDLTBRowChanging" msprop:Generator_RowEvHandlerName="XZDLTBRowChangeEventHandler" msprop:Generator_RowDeletedName="XZDLTBRowDeleted" msprop:Generator_RowEvArgName="XZDLTBRowChangeEvent" msprop:Generator_RowChangedName="XZDLTBRowChanged" msprop:Generator_RowClassName="XZDLTBRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="地类编码" msprop:Generator_ColumnVarNameInTable="column地类编码" msprop:Generator_ColumnPropNameInRow="地类编码" msprop:Generator_ColumnPropNameInTable="地类编码Column" msprop:Generator_UserColumnName="地类编码" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="复垦面积" msprop:Generator_ColumnVarNameInTable="column复垦面积" msprop:Generator_ColumnPropNameInRow="复垦面积" msprop:Generator_ColumnPropNameInTable="复垦面积Column" msprop:Generator_UserColumnName="复垦面积" type="xs:decimal" minOccurs="0" />
+              <xs:element name="复垦前地类名称" msprop:Generator_ColumnVarNameInTable="column复垦前地类名称" msprop:Generator_ColumnPropNameInRow="复垦前地类名称" msprop:Generator_ColumnPropNameInTable="复垦前地类名称Column" msprop:Generator_UserColumnName="复垦前地类名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="复垦后地类用途" msprop:Generator_ColumnVarNameInTable="column复垦后地类用途" msprop:Generator_ColumnPropNameInRow="复垦后地类用途" msprop:Generator_ColumnPropNameInTable="复垦后地类用途Column" msprop:Generator_UserColumnName="复垦后地类用途" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

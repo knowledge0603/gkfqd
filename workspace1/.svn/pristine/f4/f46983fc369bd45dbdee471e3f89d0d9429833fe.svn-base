@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using SuperMap.Data;
+
+namespace gkfqd.ui.gk01
+{
+    public partial class gk013 : Form
+    {
+
+        private Datasource gk013Datasource;
+        public gk013(Datasource datasource)
+        {
+            InitializeComponent();
+            gk013Datasource = datasource;
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //获得用于操作的两个数据集
+            DatasetVector datasetVector = (DatasetVector)gk013Datasource.Datasets["gkfqd"];
+            DatasetVector datasetVector1 = (DatasetVector)gk013Datasource.Datasets["temp_gkfqd"];
+
+
+            // 构造一个查询参数对象，查询Countries数据集中 date 字段为"1984-08-10"的记录。
+            QueryParameter para = new QueryParameter();
+            para.AttributeFilter = "SMID =  2";
+            para.CursorType = CursorType.Dynamic;
+
+            // 进行排序查询，并将其结果存储在 recordset 对象中
+
+           // datasetVector1.FieldInfos.Add("test1");
+            // 获得名为“Ocean”的数据集的所有记录，将其追加到名为“World”的数据集中
+            Recordset recordset = datasetVector1.Query(para);
+            Recordset recordset = datasetVector1.GetRecordset(false, CursorType.Dynamic);
+            recordset1.AddNew(recordset.GetGeometry());
+            // recordset1.Dataset.
+            recordset1.SetFieldValue("NAME", "test");
+            recordset1.Update();
+            //if (datasetVector.Append(recordset))
+            //{
+            //    Console.WriteLine("追加数据集成功");
+            //    //MessageBox.Show(recordset.GetID().ToString());
+            //}
+            //取得 最大 smid 添加属性记录 该处不考虑 多用户并发更新 若 多用户更新表情况 考虑 锁表操作
+            //QueryParameter para1 = new QueryParameter();
+            //para1.AttributeFilter = "SMID =  Max(SMID)";
+            //para1.CursorType = CursorType.Dynamic;
+
+            //Recordset recordset1 = datasetVector.GetIDsByGeoRelation.Query(para1);
+            //Recordset recordset = datasetVector1.GetRecordset(false, CursorType.Dynamic);
+
+            //recordset.SetFieldValue(22, "testgkfqd");
+
+            // 获得记录集对应的批量更新对象
+            //Recordset.BatchEditor editor = recordset.Batch;
+
+            //// 设置批量更新每次提交的记录数目
+            //editor.MaxRecordCount = 5;
+
+            //// 开始批量修改，将 World 数据集中 Name 字段的字段值修改为序号
+            //editor.Begin();
+
+            //for (int i = 0; i < recordset.RecordCount; i++)
+            //{
+            //    recordset.MoveTo(i);
+            //    recordset.SetFieldValue("XZQMC", (object)i.ToString());
+            //}
+
+            //// 批量操作统一提交
+            //editor.Update();
+          
+            //MessageBox.Show(recordset.GetID().ToString());
+           
+            recordset.Dispose();
+            recordset1.Dispose();
+        }
+    }
+}

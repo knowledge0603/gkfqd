@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A12709BC-6CD5-46A7-9F2E-D996B5CE4647}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gkfqd</RootNamespace>
+    <AssemblyName>gkfqd</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\gkfqd.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;e:\VS2010\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;e:\VS2010\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\gkfqd.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;e:\VS2010\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;e:\VS2010\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v14.1" />
+    <Reference Include="DevExpress.Data.v14.1" />
+    <Reference Include="DevExpress.ExpressApp.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Win.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Xpo.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Persistent.Base.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1" />
+    <Reference Include="DevExpress.Sparkline.v14.1.Core" />
+    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="SuperMap.Analyst.SpatialAnalyst">
+      <HintPath>C:\Program Files (x86)\SuperMap\SuperMap Deskpro .NET 6R\Bin\SuperMap.Analyst.SpatialAnalyst.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperMap.Data">
+      <HintPath>C:\Program Files (x86)\SuperMap\SuperMap Deskpro .NET 6R\Bin\SuperMap.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperMap.Data.Conversion, Version=6.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files (x86)\SuperMap\SuperMap Objects .NET 6R\Bin\SuperMap.Data.Conversion.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperMap.Layout">
+      <HintPath>C:\Program Files (x86)\SuperMap\SuperMap Deskpro .NET 6R\Bin\SuperMap.Layout.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperMap.Mapping">
+      <HintPath>C:\Program Files (x86)\SuperMap\SuperMap Deskpro .NET 6R\Bin\SuperMap.Mapping.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperMap.UI.Controls">
+      <HintPath>C:\Program Files (x86)\SuperMap\SuperMap Deskpro .NET 6R\Bin\SuperMap.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsFormsControlLibrary1">
+      <HintPath>D:\Visual Studio 2010\Projects\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1\bin\Debug\WindowsFormsControlLibrary1.dll</HintPath>
+    </Reference>
+    <Reference Include="WinFormsUI.Docking">
+      <HintPath>..\DLL\WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\DbUse.cs" />
+    <Compile Include="Common\Tool.cs" />
+    <Compile Include="Common\Utile.cs" />
+    <Compile Include="GK0411.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GK041.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gk042.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gk042.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gk043.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gk043.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GK044.cs">
+      <DependentUpon>GK044.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GK044.Designer.cs">
+      <DependentUpon>GK044.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="GK045.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GK045.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk014.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk014.Designer.cs">
+      <DependentUpon>gk014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk015.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk015.Designer.cs">
+      <DependentUpon>gk015.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk016.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk016.Designer.cs">
+      <DependentUpon>gk016.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk017.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk017.Designer.cs">
+      <DependentUpon>gk017.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk018.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk018.Designer.cs">
+      <DependentUpon>gk018.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk019.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk019.Designer.cs">
+      <DependentUpon>gk019.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk01a.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk01a.Designer.cs">
+      <DependentUpon>gk01a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk01b.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk01b.Designer.cs">
+      <DependentUpon>gk01b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk01c.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk01c.Designer.cs">
+      <DependentUpon>gk01c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk011.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk011.Designer.cs">
+      <DependentUpon>gk011.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\gk013.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\gk013.Designer.cs">
+      <DependentUpon>gk013.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk01\WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk01\WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk02\gk021.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk02\gk021.Designer.cs">
+      <DependentUpon>gk021.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk02\gk026.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk02\gk026.Designer.cs">
+      <DependentUpon>gk026.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk031.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk031.Designer.cs">
+      <DependentUpon>gk031.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk032.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk032.Designer.cs">
+      <DependentUpon>gk032.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk033.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk033.Designer.cs">
+      <DependentUpon>gk033.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk034.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk034.Designer.cs">
+      <DependentUpon>gk034.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk035.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk035.Designer.cs">
+      <DependentUpon>gk035.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk036.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk036.Designer.cs">
+      <DependentUpon>gk036.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk037.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk037.Designer.cs">
+      <DependentUpon>gk037.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk038.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk038.Designer.cs">
+      <DependentUpon>gk038.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk039.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk039.Designer.cs">
+      <DependentUpon>gk039.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk0390.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk0390.Designer.cs">
+      <DependentUpon>gk0390.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk03a.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk03a.Designer.cs">
+      <DependentUpon>gk03a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\gk03b.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\gk03b.Designer.cs">
+      <DependentUpon>gk03b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk03\WaitForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk03\WaitForm2.Designer.cs">
+      <DependentUpon>WaitForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk04\gk04.cs" />
+    <Compile Include="ui\gk04\gk041.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk04\gk041.Designer.cs">
+      <DependentUpon>gk041.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk04\gk042.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk04\gk042.Designer.cs">
+      <DependentUpon>gk042.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk04\gk043.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk04\gk043.Designer.cs">
+      <DependentUpon>gk043.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk04\gk044.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk04\gk044.Designer.cs">
+      <DependentUpon>gk044.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk04\gk045.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk04\gk045.Designer.cs">
+      <DependentUpon>gk045.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk04\SampleRun.cs" />
+    <Compile Include="ui\gk05\gk051.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk05\gk051.Designer.cs">
+      <DependentUpon>gk051.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk05\gk053.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk05\gk053.Designer.cs">
+      <DependentUpon>gk053.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk05\gk054.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk05\gk054.Designer.cs">
+      <DependentUpon>gk054.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk06\gk061.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk06\gk061.Designer.cs">
+      <DependentUpon>gk061.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk06\gk062.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk06\gk062.Designer.cs">
+      <DependentUpon>gk062.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk06\gk063.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk06\gk063.Designer.cs">
+      <DependentUpon>gk063.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk06\gk064.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk06\gk064.Designer.cs">
+      <DependentUpon>gk064.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk06\gk065.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk06\gk065.Designer.cs">
+      <DependentUpon>gk065.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk06\gk066.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk06\gk066.Designer.cs">
+      <DependentUpon>gk066.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\gk06\gk067.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\gk06\gk067.Designer.cs">
+      <DependentUpon>gk067.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk011.resx">
+      <DependentUpon>gk011.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk013.resx">
+      <DependentUpon>gk013.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk014.resx">
+      <DependentUpon>gk014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk015.resx">
+      <DependentUpon>gk015.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk016.resx">
+      <DependentUpon>gk016.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk017.resx">
+      <DependentUpon>gk017.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk018.resx">
+      <DependentUpon>gk018.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk019.resx">
+      <DependentUpon>gk019.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk01a.resx">
+      <DependentUpon>gk01a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk01b.resx">
+      <DependentUpon>gk01b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\gk01c.resx">
+      <DependentUpon>gk01c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk01\WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk02\gk026.resx">
+      <DependentUpon>gk026.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk031.resx">
+      <DependentUpon>gk031.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk032.resx">
+      <DependentUpon>gk032.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk033.resx">
+      <DependentUpon>gk033.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk034.resx">
+      <DependentUpon>gk034.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk035.resx">
+      <DependentUpon>gk035.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk036.resx">
+      <DependentUpon>gk036.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk037.resx">
+      <DependentUpon>gk037.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk038.resx">
+      <DependentUpon>gk038.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk039.resx">
+      <DependentUpon>gk039.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk0390.resx">
+      <DependentUpon>gk0390.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk03a.resx">
+      <DependentUpon>gk03a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\gk03b.resx">
+      <DependentUpon>gk03b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk03\WaitForm2.resx">
+      <DependentUpon>WaitForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk04\gk041.rdlc" />
+    <EmbeddedResource Include="ui\gk04\gk041.resx">
+      <DependentUpon>gk041.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk04\gk042.rdlc" />
+    <EmbeddedResource Include="ui\gk04\gk042.resx">
+      <DependentUpon>gk042.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk04\gk043.rdlc" />
+    <EmbeddedResource Include="ui\gk04\gk043.resx">
+      <DependentUpon>gk043.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk04\gk044.rdlc" />
+    <EmbeddedResource Include="ui\gk04\gk044.resx">
+      <DependentUpon>gk044.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk04\gk045.rdlc" />
+    <EmbeddedResource Include="ui\gk04\gk045.resx">
+      <DependentUpon>gk045.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk05\gk053.resx">
+      <DependentUpon>gk053.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk05\gk054.resx">
+      <DependentUpon>gk054.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk06\gk062.resx">
+      <DependentUpon>gk062.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk06\gk063.resx">
+      <DependentUpon>gk063.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk06\gk064.resx">
+      <DependentUpon>gk064.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk06\gk065.resx">
+      <DependentUpon>gk065.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk06\gk066.resx">
+      <DependentUpon>gk066.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\gk06\gk067.resx">
+      <DependentUpon>gk067.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="GK041.xsc">
+      <DependentUpon>GK041.xsd</DependentUpon>
+    </None>
+    <None Include="GK041.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>GK0411.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GK041.xss">
+      <DependentUpon>GK041.xsd</DependentUpon>
+    </None>
+    <None Include="gk042.xsc">
+      <DependentUpon>gk042.xsd</DependentUpon>
+    </None>
+    <None Include="gk042.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gk042.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gk042.xss">
+      <DependentUpon>gk042.xsd</DependentUpon>
+    </None>
+    <None Include="gk043.xsc">
+      <DependentUpon>gk043.xsd</DependentUpon>
+    </None>
+    <None Include="gk043.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gk043.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gk043.xss">
+      <DependentUpon>gk043.xsd</DependentUpon>
+    </None>
+    <None Include="GK044.xsc">
+      <DependentUpon>GK044.xsd</DependentUpon>
+    </None>
+    <None Include="GK044.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GK044.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GK044.xss">
+      <DependentUpon>GK044.xsd</DependentUpon>
+    </None>
+    <None Include="GK045.xsc">
+      <DependentUpon>GK045.xsd</DependentUpon>
+    </None>
+    <None Include="GK045.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GK045.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GK045.xss">
+      <DependentUpon>GK045.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\ServiceReference3\Service1.wsdl" />
+    <None Include="Service1.wsdl" />
+    <None Include="template\temp.smwu" />
+    <None Include="template\temp.udb" />
+    <None Include="template\temp.udd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\MapBrowse\MapEntire.png" />
+    <Content Include="Resources\MapBrowse\MapPan.png" />
+    <Content Include="Resources\MapBrowse\MapRefresh.png" />
+    <Content Include="Resources\MapBrowse\MapSelect.png" />
+    <Content Include="Resources\MapBrowse\MapZoomFree.png" />
+    <Content Include="Resources\MapBrowse\MapZoomIn.png" />
+    <Content Include="Resources\MapBrowse\MapZoomOut.png" />
+    <Content Include="Resources\SceneBrowse\ScenePan.png" />
+    <Content Include="Resources\SceneBrowse\SceneRefresh.png" />
+    <Content Include="Resources\SceneBrowse\SceneSelect.png" />
+    <Content Include="Resources\SceneBrowse\SceneViewEntire.png" />
+    <None Include="Service References\ServiceReference3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference3\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference3\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference3\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tempFolder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference3\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
